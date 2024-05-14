@@ -23,5 +23,5 @@ csv = CSV.parse(csv_text, headers: true)
 
 csv.each do |row|
   owner = User.find_by_email("restaurant_user#{rand(0..5)}@email.com")
-  Restaurant.create(name: Faker::Restaurant.name, cuisine: Faker::Restaurant.type, details: Faker::Restaurant.description, longitude: row['lng'], latitude: row['lat'], user: owner, address: "somewhere")
+  Restaurant.create(name: Faker::Restaurant.name, cuisine: Faker::Restaurant.type, details: Faker::Restaurant.description, longitude: row['venue_lng'], latitude: row['venue_lat'], user: owner, address: "somewhere")
 end
