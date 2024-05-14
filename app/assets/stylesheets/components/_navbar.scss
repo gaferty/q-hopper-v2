@@ -1,4 +1,9 @@
 .navbar-lewagon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000; /* Ensure it's at the front */
   justify-content: space-between;
   background: white;
 }
@@ -8,5 +13,5 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 120px;
 }
