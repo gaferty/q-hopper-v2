@@ -1,7 +1,7 @@
 class Restaurant < ApplicationRecord
   belongs_to :use
-  validates :name, presence: true
-  validates :cuisine
-  validates :address, presence: true
   has_many :bookings
+  validates :name, presence: true
+  validates :cuisine, presence: true
+  validates :address, presence: true
 end
