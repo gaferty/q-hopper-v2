@@ -22,11 +22,15 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      // Adding initial display to the map icons
+      const popUp = new mapboxgl.Popup().setHTML(marker.info_window_html) // Add this
+
     // Adding in the custom marker
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popUp)
         .addTo(this.map)
     })
   }
