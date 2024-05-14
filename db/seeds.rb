@@ -16,7 +16,7 @@ require 'geocoder'
 end
 
 5.times do |x|
-  User.create(email:"restaurant_user#{x}@email.com", password: 'password', user_type: 'customer', name:Faker::Name.name )
+  User.create(email:"restaurant_user#{x}@email.com", password: 'password', user_type: 'restaurant', name:Faker::Name.name )
 end
 
 csv_text = File.read('./db/venues_df.csv')
@@ -26,6 +26,5 @@ csv.each do |row|
   owner = User.find_by_email("restaurant_user#{rand(0..5)}@email.com")
   geo_localization = "#{row['venue_lat']},#{row['venue_lng']}"
   query = Geocoder.search(geo_localization).first
-  restaurant = Restaurant.create(name: Faker::Restaurant.name, cuisine: Faker::Restaurant.type, details: Faker::Restaurant.description, user: owner, address: query.address)
-  p restaurant
+  Restaurant.create(name: Faker::Restaurant.name, cuisine: Faker::Restaurant.type, details: Faker::Restaurant.description, user: owner, address: query.address)
 end
