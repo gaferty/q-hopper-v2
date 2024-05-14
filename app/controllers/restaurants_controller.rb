@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :new, :create]
   def index
-
+    @restaurants = Restaurant.all
   end
 
   def show
@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
 
   private
 
-  def set_booking
-    @booking = Booking.find(params[:id])
+  def set_restaurant
+    @restaurant= Restaurant.find(params[:id])
   end
 end
