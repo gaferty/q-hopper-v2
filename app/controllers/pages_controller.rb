@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def review
+    @reviews = Review.all
   end
 end
