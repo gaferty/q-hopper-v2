@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :new, :create]
-  skip_before_action :authenticate_user!, only: [:index, :show, :map]
+  skip_before_action :authenticate_user!, only: [:index, :show, :restaurant_map]
 
   def index
     @restaurants = Restaurant.all
@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
 
   def restaurant_map
     @restaurants = Restaurant.all
-    @markerts = @restaurants.geocode.map do |restaurant|
+    @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude
