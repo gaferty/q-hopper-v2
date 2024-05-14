@@ -1,0 +1,48 @@
+
+
+<div class="container-fluid py-2 fixed-section">
+  <!-- Add your content for the fixed section here -->
+
+  <div class="container-restaurant">
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+      <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+    </div>
+  </div>
+
+  <div class="container-fluid py-2">
+      <div class="row flex-nowrap overflow-auto" style="width: 100vw;">
+          <div class="col-auto mr-3">
+              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
+          </div>
+          <div class="col-auto mr-3">
+              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
+          </div>
+          <div class="col-auto mr-3">
+              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
+          </div>
+          <div class="col-auto mr-3">
+              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
+          </div>
+          <div class="col-auto mr-3">
+              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
+          </div>
+          <div class="col-auto">
+              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+<% @restaurants.each do |r| %>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= r.name %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+<% end %>
