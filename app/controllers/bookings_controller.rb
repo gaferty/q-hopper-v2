@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @bookings.each do |booking|
       @booking_infos << {
         booking: booking,
-        queue_position: Booking.where("restaurant_id=? AND created_at <= ? AND accepted = false",booking.restaurant_id, booking.created_at).count
+        queue_position: Booking.where("restaurant_id=? AND created_at >= ? AND accepted = false",booking.restaurant_id, booking.created_at).count
       }
 
     end
@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
   def join_queue
     #booking= Booking.new(booking_params)
     @restaurant= Restaurant.find(params[:restaurant_id])
-    booking= Booking.new(user:current_user,restaurant: @restaurant)
+    booking= Booking.new(user:current_user,restaurant: @restaurant, accepted: false, completed: false)
     if booking.save
       redirect_to bookings_path
     else
