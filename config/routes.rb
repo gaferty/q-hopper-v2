@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   get '/map', to: 'restaurants#restaurant_map'
   resources :restaurants do
-    resources :bookings, only: [:new, :create, :edit, :update]
+    post '/join_queue',  to: 'bookings#join_queue'
+
+    resources :bookings, only: [:new, :create, :edit, :update] do
+    end
+
   end
   resources :bookings
 end
