@@ -3,5 +3,5 @@ class Restaurant < ApplicationRecord
   has_many :bookings
   validates :name, presence: true
   validates :cuisine, presence: true
-  validates :address, presence: true
+  validates :details, presence: true
 end

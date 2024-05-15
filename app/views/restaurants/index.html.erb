@@ -1,6 +1,6 @@
 
 
-<div class="container-fluid py-2 fixed-section">
+<div class="container-fluid py-0 fixed-section">
   <!-- Add your content for the fixed section here -->
 
   <div class="container-restaurant">
@@ -10,39 +10,41 @@
     </div>
   </div>
 
-  <div class="container-fluid py-2">
-      <div class="row flex-nowrap overflow-auto" style="width: 100vw;">
-          <div class="col-auto mr-3">
-              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
-          </div>
-          <div class="col-auto mr-3">
-              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
-          </div>
-          <div class="col-auto mr-3">
-              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
-          </div>
-          <div class="col-auto mr-3">
-              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
-          </div>
-          <div class="col-auto mr-3">
-              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
-          </div>
-          <div class="col-auto">
-              <div class="card card-body" style="min-width: 100px; border-radius: 5px;">Card</div>
-          </div>
+<div class="container-fluid py-0">
+  <div class="row flex-nowrap overflow-auto" style="width: 100vw;">
+    <div class="col-auto mr-3">
+      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
+        <i class="fa-solid fa-pizza-slice"></i>Italian
       </div>
+    </div>
+    <div class="col-auto mr-3">
+      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
+        <i class="fa-solid fa-pepper-hot"></i>Mexican
+      </div>
+    </div>
+    <div class="col-auto mr-3">
+      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
+        <i class="fa-solid fa-bowl-food"></i>Indian
+      </div>
+    </div>
+    <div class="col-auto mr-3">
+      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
+        <i class="fa-solid fa-bowl-rice"></i>Chinese
+      </div>
+    </div>
+    <div class="col-auto mr-3">
+      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
+        <i class="fa-solid fa-shrimp"></i>Thai
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
+        <i class="fa-solid fa-burger"></i>American
+      </div>
+    </div>
   </div>
+</div>
 
 </div>
 
-
-<% @restaurants.each do |r| %>
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= r.name %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-<% end %>
+<%= render "list-card", restaurants:@restaurants%>
