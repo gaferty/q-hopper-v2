@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :new, :create]
   def index
-
+    @bookings = Booking.where(user_id: 1)
   end
 
   def show

@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-
+    raise
   end
 
   def new
@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
 
   private
 
-  def set_booking
-    @booking = Booking.find(params[:id])
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 end
