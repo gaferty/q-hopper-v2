@@ -1,6 +1,7 @@
 
 <div class="container">
-  <% bookings.each do |booking|%>
+  <% booking_infos.each do |booking_info|%>
+  <%booking= booking_info[:booking]%>
     <div class="card bg-container-color mt-2 rounded rounded-2 ">
       <div class="row" onclick = "location.href = '/restaurants/<%=booking.restaurant.id%>'">
         <div class="col">
@@ -19,7 +20,7 @@
         <div class="col justify-content-end">
             <div class="d-flex justify-content-end">
               <div class="queue-position">
-              <strong> 12 </strong>
+              <strong> <%=booking_info[:queue_position]%></strong>
               <p>Queue</p>
               <p>Position</p>
               </div>
