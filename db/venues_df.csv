@@ -1,4 +1,4 @@
-Borough,lat,lng,name,categori,venue_lat,vanue_lng,distance
+Borough,lat,lng,name,categori,venue_lat,venue_lng,distance
 Westminster,51.50010000000003,-0.128029999999967,The Cinnamon Club,Indian Restaurant,51.49749105618828,-0.12959288300972766,309
 Westminster,51.50010000000003,-0.128029999999967,Chutney Mary,Indian Restaurant,51.50566173100024,-0.1386507201732926,961
 Westminster,51.50010000000003,-0.128029999999967,Quilon,Indian Restaurant,51.49877248841534,-0.13752218091498283,674
