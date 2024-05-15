@@ -28,3 +28,7 @@ csv.each do |row|
   query = Geocoder.search(geo_localization).first
   Restaurant.create(name: Faker::Restaurant.name, cuisine: Faker::Restaurant.type, details: Faker::Restaurant.description, user: owner, address: query.address)
 end
+
+5.times do |x|
+  User.create(email:"restaurant_user#{x}@email.com", password: 'password', user_type: 'customer', name:Faker::Name.name )
+end

@@ -73,9 +73,5 @@
     </div>
   </a>
   <!-- Second button -->
-  <a href="#" class="second-button">
-      <div class="button rounded-right">
-      Join Queue
-    </div>
-  </a>
+  <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
 </div>

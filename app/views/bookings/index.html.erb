@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="btn-group d-flex justify-content-center" role="group" aria-label="Vertical radio toggle button group">
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+    <label class="btn btn-outline-secondary" for="vbtn-radio1">Queue</label>
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+    <label class="btn btn-outline-secondary" for="vbtn-radio2">Completed</label>
+  </div>
+</div>
+
+<%= render 'booking_card', booking_infos: @booking_infos%>
