@@ -8,11 +8,9 @@
             <h5 class="card-title"><%= r.name %></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="row">
-              <div class="col">
-                <a href="#" class="btn btn-primary btn-block">Go somewhere</a>
-              </div>
-              <div class="col">
-                <a href="#" class="btn btn-secondary btn-block">Second Button</a>
+              <div class="button-container-index">
+                <a href="<%= restaurant_path(r.id) %>" class="btn btn-info btn-block btn-small">Details</a>
+                <%= link_to "Join Queue", restaurant_join_queue_path(r.id), class: "btn btn-primary btn-block btn-big", data: { turbo_method: :post } %>
               </div>
             </div>
           </div>
