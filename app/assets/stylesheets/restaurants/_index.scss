@@ -11,3 +11,23 @@
   background-color: #fff;
   z-index: 999;
 }
+
+.button-container-index {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+.btn-small {
+  border-radius: 10px;
+  width: calc(40% - 5px); /* Adjust width as needed */
+}
+
+.btn-big {
+  border-radius: 10px;
+  width: calc(60% - 5px); /* Adjust width as needed */
+}
+
+.row.flex-nowrap.overflow-auto::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
