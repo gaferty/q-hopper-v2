@@ -1,0 +1,94 @@
+.container-show {
+  margin-top:100px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-bottom: 200px;
+}
+
+.carousel-item {
+  height: 200px; /* Set the height of carousel items to 100px */
+  overflow: hidden; /* Hide any content that overflows the carousel item */
+  border-radius: 20px;
+}
+
+.carousel-item img {
+  width: 100%; /* Make the images cover the entire width of the carousel */
+  height: auto; /* Ensure the aspect ratio of the images is maintained */
+  object-fit: cover; /* Scale the image to cover the entire area of the carousel item */
+}
+
+.rounded-custom {
+  border-radius: 10px; /* Adjust the value to increase or decrease the roundness */
+}
+
+.col-custom {
+  margin-top: 2px; /* Adjust the margin between columns */
+  margin-bottom: 12px; /* Adjust the margin between columns */
+  padding: 0 8px; /* Optional: Add padding to columns for better spacing */
+}
+
+.card-body-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container-show .card-body h1 {
+  margin-bottom: 0; /* Override Bootstrap's default margin */
+}
+
+
+.p-show {
+  font-size: small;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: calc(100% - 40px); /* Adjust left and right padding */
+  display: flex;
+}
+
+.button {
+  width: 50px; /* Set the width of each button */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+}
+
+.rounded-left {
+  background-color: #FFD9E9;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.rounded-right {
+  background-color: #E82E64;
+  color: #ffffff;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 310%;
+}
+
+/* Second button styling */
+.second-button {
+  margin-left: 3px; /* Ensure no gap between buttons */
+}
+
+.header-show {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 1000;
+  padding-top: 55px;
+}

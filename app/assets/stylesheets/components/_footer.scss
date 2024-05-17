@@ -1,0 +1,36 @@
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0px 0;
+}
+
+.footer-nav {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.footer-section {
+  display: inline-block;
+  margin: 0 30px;
+}
+
+.footer-section a {
+  color: #585858;
+  text-decoration: none;
+  display: block; /* Display as block elements */
+  text-align: center;
+}
+
+.footer-section a i {
+  display: block; /* Display the icon as a block element */
+  margin-bottom: 5px; /* Add space between icon and text */
+}
+
+.footer-section a span {
+  display: block; /* Display the text as a block element */
+  font-size: small;
+}

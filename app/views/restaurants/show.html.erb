@@ -1,0 +1,74 @@
+<div class="container-show">
+
+
+  <!-- Centered name -->
+  <div class="header-show">
+  <h5 class="text-center"><%= @restaurant.name %></h5>
+  </div>
+
+  <%= render "carousel", restaurants:@restaurants%>
+
+  <!-- Cards -->
+  <div class="row mt-2">
+
+    <div class="col-4 col-custom">
+      <div class="card rounded-custom" style="height: 80px;">
+        <div class="card-body text-center">
+          <div>
+          <h1><i class="fa-solid fa-pizza-slice"></i></h1>
+          </div>
+          <div>
+          Italian
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-4 col-custom">
+      <div class="card rounded-custom" style="height: 80px;">
+        <div class="card-body text-center">
+          <h1>7.9</h1>
+          <div>
+          Rating
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-4 col-custom">
+      <div class="card rounded-custom" style="height: 80px;">
+        <div class="card-body text-center">
+          <h1>15</h1>
+          <div>
+            Est min
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Restaurant Details -->
+  <h6 class="mt-3">Details:</h6>
+  <p class="p-show"><%= @restaurant.details %></p>
+
+  <h6 class="mt-3">Address:</h6>
+  <p class="p-show"><%= @restaurant.address %></p>
+
+
+
+</div>
+
+
+<!-- Back button -->
+<div class="button-container">
+  <a href="<%= restaurants_path %>" class="back-to-top">
+    <div class="button rounded-left">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+  </a>
+  <!-- Second button -->
+  <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
+</div>
