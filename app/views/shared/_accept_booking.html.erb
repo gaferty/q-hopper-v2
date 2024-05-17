@@ -1,0 +1,80 @@
+<%restaurant_alert = Restaurant.find(restaurant_id)%>
+
+<div class="booking-alert-container">
+  <div class="container bg-light p-1 border">
+    <div class="container-show">
+      <!-- Centered name -->
+      <div class="header-show">
+      <h5 class="text-center"><%= restaurant_alert.name %></h5>
+      </div>
+
+      <%= render "restaurants/carousel", restaurants:restaurant_alert%>
+
+      <!-- Cards -->
+      <div class="row mt-2">
+
+        <div class="col-4 col-custom">
+          <div class="card rounded-custom" style="height: 80px;">
+            <div class="card-body text-center">
+              <div>
+              <h1><i class="fa-solid fa-pizza-slice"></i></h1>
+              </div>
+              <div>
+              Italian
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-4 col-custom">
+          <div class="card rounded-custom" style="height: 80px;">
+            <div class="card-body text-center">
+              <h1>7.9</h1>
+              <div>
+              Rating
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-4 col-custom">
+          <div class="card rounded-custom" style="height: 80px;">
+            <div class="card-body text-center">
+              <h1>15</h1>
+              <div>
+                Est min
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Restaurant Details -->
+      <h6 class="mt-3">Address:</h6>
+      <p class="p-show"><%= restaurant_alert.address %></p>
+
+
+
+      <div class=" d-flex justify-content-center">
+        <%= link_to "Leave Queue", booking_path(restaurant_alert), class: "btn btn-secondary alert-rounded-left", data:{turbo_method: :delete, confirm: "Are you sure?"}%>
+
+        <!-- Second button -->
+
+        <%= link_to "Accept Booking", restaurant_accept_booking_path(booking_id), class: "btn btn-primary alert-rounded-right", data:{turbo_method: :patch, confirm: "Are you sure?"}%>
+
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Back button -->
+    <!-- DELETE ME -->
+
+
+  </div>
+</div>

@@ -18,9 +18,6 @@ class RestaurantsController < ApplicationController
 
   end
 
-  def destroy
-
-  end
 
   def test
     @restaurants = Restaurant.all

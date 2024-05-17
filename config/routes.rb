@@ -17,10 +17,15 @@ Rails.application.routes.draw do
 
     resources :reviews, only:[:index, :new, :create, :show]
     post '/join_queue',  to: 'bookings#join_queue'
-
+    patch '/accept_booking', to: 'bookings#accept_booking'
     resources :bookings, only: [:new, :create, :edit, :update] do
+
     end
 
   end
   resources :bookings
+  # Restaurant user view
+  resources :venues do
+    post '/add_group', to: 'venues#add_group'
+  end
 end

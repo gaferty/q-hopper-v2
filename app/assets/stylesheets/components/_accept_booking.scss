@@ -1,0 +1,24 @@
+.booking-alert-container{
+  position:fixed;
+  z-index: 100;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 50%;
+}
+
+.alert-rounded-left {
+  background-color: $gray;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-color: none;
+  width: 50%;
+}
+
+.alert-rounded-right {
+  background-color: #E82E64;
+  color: #ffffff;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 50%;
+}

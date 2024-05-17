@@ -35,7 +35,7 @@ end
 (1..3).each do |x|
   user = User.find_by_email("user#{x}@email.com")
   5.times do |x|
-    Booking.create(user: user, restaurant_id: x, accepted: false, completed: false)
+    Booking.create(user: user, restaurant_id: x, accepted: false, completed: false, join: false)
 
   end
 
