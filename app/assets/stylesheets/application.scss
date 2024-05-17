@@ -7,12 +7,20 @@
 @import "bootstrap";
 @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
-
 // Importing Mapbox css
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+// Your CSS components partials
+@import "components/index";
+@import "components/footer";
+@import "components/toggleview";
+
+// Your pages index partial
+@import "pages/index";
+
+// Your bookings index partial
+@import "bookings/index";
+
 // Your CSS pages
 @import "restaurants/index";
 
@@ -20,8 +28,9 @@
 @import "queues/index";
 
 .main {
-  margin-top: 100px;
+  margin-top: 80px;
 }
+
 @import "restaurants/show";
 
 // booking alert

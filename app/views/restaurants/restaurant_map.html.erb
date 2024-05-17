@@ -1,6 +1,50 @@
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_KEY'] %>">
 
+  <!-- This is the search bar -->
+
+  <div class="container-restaurant">
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+      <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+    </div>
+  </div>
+
+
+<div class="main-content">
+    <div style="width: 100%; height: 700px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_KEY'] %>">
+    </div>
+</div>
+
+
+<!-- Footer for the home page (do not render as I have had to do a manual thing - cyrus) -->
+<footer class="footer">
+    <nav class="footer-nav">
+        <div class="footer-section">
+            <a href="map">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860283/qxksgyduenfel07lmr9l.png" alt="Home">
+                <span style="color: #E82E64">Search</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="bookings">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/nmesasdrerguhyguwdxt.png" alt="About">
+                <span>Queue</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="contact.html">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/hddpgefap6eu4ce1dmoe.png" alt="Contact">
+                <span>Account</span>
+            </a>
+        </div>
+    </nav>
+</footer>
+
+<!-- toggle for the view component -->
+<div class="fixed-button">
+    <a href="restaurants">
+        <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715869457/o4udm2ghk1g4ozgmlqus.png" alt="Button Image">
+    </a>
 </div>

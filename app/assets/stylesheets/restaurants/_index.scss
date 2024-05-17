@@ -31,3 +31,39 @@
 .row.flex-nowrap.overflow-auto::-webkit-scrollbar {
   display: none; /* Hide scrollbar */
 }
+
+
+/* Hide the checkboxes */
+.type {
+  position: absolute;
+  left: -9999px;
+  transform: scale(0);
+}
+
+/* Style the labels */
+label {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 65px;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Style for when labels are hovered */
+label:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style for icons */
+.icon {
+  font-size: 24px;
+}
+
+/* Style for when checkboxes are checked */
+.type:checked + label {
+  background-color: #FFD9E9;
+}
