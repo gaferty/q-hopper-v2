@@ -22,6 +22,10 @@ class RestaurantsController < ApplicationController
 
   end
 
+  def test
+    @restaurants = Restaurant.all
+  end
+
   def restaurant_map
     @restaurants = Restaurant.all
     @markers = @restaurants.geocoded.map do |restaurant|
