@@ -76,8 +76,6 @@
   </a>
   <!-- Second button -->
 
-  <form method="post" action=<%=restaurant_join_queue_path(@restaurant.id)%>>
-    <input value="Create" type="submit" class = "button rounded-right"/>
-  </form>
+  <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
 
 </div>

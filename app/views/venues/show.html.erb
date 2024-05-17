@@ -1,34 +1,59 @@
-<div class="container">
-  <h1> <%=@venue.name%>  </h1>
+<h1 class="text-center"> <%=@venue.name%>  </h1>
+<div class="venue-queue-container" >
+  <div class="row w-60">
+      <div class="col ">
+          <h2> Current Queue</h2>
+        <div class="d-flex-inline justify-content-center overflow-scrollable-y">
+          <%@bookings.where(accepted: false).each do |booking|%>
+            <%if booking.join == true %>
+              <div class="card p-0 mt-1 bg-warning">
+                <div class="card-body">
+                  Awaiting Confirmation from <%=booking.user.name%>
+                </div>
 
-  <h2> Current Queue</h2>
+              </div>
+            <%else%>
+              <div class="card mt-1">
+                <div class="card-body">
+                  <%=booking.user.name%>
+                </div>
 
-  <div class="row">
-    <div class="col">
-      <%@bookings.where(join: false).each do |booking|%>
-        <p> <%=booking.id%> <%=booking.user.name%> <%=booking.accepted%> <%=booking.completed%></p>
-      <%end%>
-    </div>
-    <div class="col">
-      <h2> Accepted Queue</h2>
-      <%@bookings.where(accepted: true).each do |booking|%>
-        <p>  <%=booking.user.name%> <%=booking.accepted%> <%=booking.completed%></p>
-      <%end%>
-    </div>
+              </div>
+
+            <%end%>
+          <%end%>
+          </div>
+          <div class="venue-queue-button d-flex justify-content-center p-3">
+            <%if @bookings.where(accepted:false, completed:false, join:false).empty?%>
+
+                <div class="add-booking">
+                  <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-info disabled rounded'%>
+              </div>
+            <%else%>
+              <div class="add-booking">
+                <%= button_to "Accept next group", venue_add_group_path(@venue), class: 'btn btn-primary'%>
+              </div>
+            <%end%>
+
+          </div>
+
+
+
+        </div>
+
+        <div class="col">
+
+          <h2> Accepted Queue</h2>
+
+          <%@bookings.where(accepted: true).each do |booking|%>
+          <div class="card bg-success">
+            <div class="card-body">
+
+              <%=booking.user.name%> is on their way!
+            </div>
+          </div>
+          <%end%>
+        </div>
   </div>
-
-
-
-
-  <%if @bookings.where(accepted:false).empty?%>
-      <div class="add-booking">
-        <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-disabled'%>
-    </div>
-  <%else%>
-    <div class="add-booking">
-      <%= button_to "Accept next group", venue_add_group_path(@venue)%>
-    </div>
-  <%end%>
-
 
 </div>

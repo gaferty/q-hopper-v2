@@ -43,10 +43,10 @@ class BookingsController < ApplicationController
 
   def accept_booking
     @booking = Booking.find(params[:restaurant_id])
-    @booking.update(completed: true)
+    @booking.update(accepted: true)
     user = @booking.user
 
-    Booking.where(user: @booking.user).destroy_all
+    Booking.where(user: @booking.user,accepted: false).destroy_all
     redirect_to bookings_path
   end
 
