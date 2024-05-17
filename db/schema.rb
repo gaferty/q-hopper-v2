@@ -17,8 +17,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_123924) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "restaurant_id", null: false
-    t.boolean "accepted"
-    t.boolean "completed"
+    t.boolean "join", default: false
+    t.boolean "accepted", default: false
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_bookings_on_restaurant_id"
@@ -26,11 +27,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_123924) do
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "cuisine"
     t.integer "rating"
     t.string "details"
-    t.string "address"
+    t.string "address", null: false
     t.float "longitude"
     t.float "latitude"
     t.bigint "user_id", null: false

@@ -1,0 +1,34 @@
+<div class="container">
+  <h1> <%=@venue.name%>  </h1>
+
+  <h2> Current Queue</h2>
+
+  <div class="row">
+    <div class="col">
+      <%@bookings.where(join: false).each do |booking|%>
+        <p> <%=booking.id%> <%=booking.user.name%> <%=booking.accepted%> <%=booking.completed%></p>
+      <%end%>
+    </div>
+    <div class="col">
+      <h2> Accepted Queue</h2>
+      <%@bookings.where(accepted: true).each do |booking|%>
+        <p>  <%=booking.user.name%> <%=booking.accepted%> <%=booking.completed%></p>
+      <%end%>
+    </div>
+  </div>
+
+
+
+
+  <%if @bookings.where(accepted:false).empty?%>
+      <div class="add-booking">
+        <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-disabled'%>
+    </div>
+  <%else%>
+    <div class="add-booking">
+      <%= button_to "Accept next group", venue_add_group_path(@venue)%>
+    </div>
+  <%end%>
+
+
+</div>

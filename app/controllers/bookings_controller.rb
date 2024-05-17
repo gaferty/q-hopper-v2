@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :new, :create]
+  before_action :set_booking, only: [:show, :new, :create, :destroy]
   def index
     @bookings = Booking.where(user_id: current_user.id)
     #For each of the bookings return the results before the created date timestamp
@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
     booking= Booking.new(booking_params)
     #booking= Booking.new(user:current_user,restaurant_id:params[:id])
     if booking.save
@@ -33,7 +32,6 @@ class BookingsController < ApplicationController
   end
 
   def join_queue
-    #booking= Booking.new(booking_params)
     @restaurant= Restaurant.find(params[:restaurant_id])
     booking= Booking.new(user:current_user,restaurant: @restaurant, accepted: false, completed: false)
     if booking.save
@@ -43,8 +41,18 @@ class BookingsController < ApplicationController
     end
   end
 
-  def destroy
+  def accept_booking
+    @booking = Booking.find(params[:restaurant_id])
+    @booking.update(completed: true)
+    user = @booking.user
 
+    Booking.where(user: @booking.user).destroy_all
+    redirect_to bookings_path
+  end
+
+  def destroy
+    @booking.destroy()
+    redirect_to bookings_path
   end
 
   private

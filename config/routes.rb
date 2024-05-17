@@ -10,12 +10,18 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get '/map', to: 'restaurants#restaurant_map'
+
   resources :restaurants do
     post '/join_queue',  to: 'bookings#join_queue'
-
+    patch '/accept_booking', to: 'bookings#accept_booking'
     resources :bookings, only: [:new, :create, :edit, :update] do
+
     end
 
   end
   resources :bookings
+  # Restaurant user view
+  resources :venues do
+    post '/add_group', to: 'venues#add_group'
+  end
 end

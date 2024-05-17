@@ -18,9 +18,6 @@ class RestaurantsController < ApplicationController
 
   end
 
-  def destroy
-
-  end
 
   def restaurant_map
     @restaurants = Restaurant.all
