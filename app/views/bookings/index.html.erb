@@ -1,10 +1,45 @@
-<div class="container">
+
+<!-- This is the  Que / Completed toggle -->
+
+<div class="container-fluid py-3 fixed-section">
   <div class="btn-group d-flex justify-content-center" role="group" aria-label="Vertical radio toggle button group">
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
-    <label class="btn btn-outline-secondary" for="vbtn-radio1">Queue</label>
+    <label class="btn btn-outline-secondary" style="height: 30px; align-content: center;" for="vbtn-radio1">Queue</label>
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
-    <label class="btn btn-outline-secondary" for="vbtn-radio2">Completed</label>
+    <label class="btn btn-outline-secondary" style="height: 30px; align-content: center;" for="vbtn-radio2">Completed</label>
   </div>
 </div>
 
 <%= render 'booking_card', booking_infos: @booking_infos%>
+
+
+
+
+
+
+
+
+
+<!-- Footer for the Queue (do not render as I have had to do a manual thing - cyrus) -->
+<footer class="footer">
+    <nav class="footer-nav">
+        <div class="footer-section">
+            <a href="map">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/ofarf6aoairysld5eghg.png" alt="Home">
+                <span>Search</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="bookings">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/xfjzjdi2tbeyb8wwzoja.png" alt="About">
+                <span style="color: #E82E64">Queue</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="contact.html">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/hddpgefap6eu4ce1dmoe.png" alt="Contact">
+                <span>Account</span>
+            </a>
+        </div>
+    </nav>
+</footer>

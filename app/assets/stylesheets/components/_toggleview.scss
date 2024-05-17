@@ -1,0 +1,11 @@
+.fixed-button {
+  position: fixed;
+  bottom: 95px; /* Adjust as needed */
+  right: 140px; /* Adjust as needed */
+  z-index: 1002; /* Ensure it's above other content */
+}
+
+.fixed-button img {
+  width: 100px; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+}

@@ -1,7 +1,8 @@
 
 
 <div class="container-fluid py-0 fixed-section">
-  <!-- Add your content for the fixed section here -->
+
+  <!-- This is the search bar -->
 
   <div class="container-restaurant">
     <div class="input-group">
@@ -10,41 +11,74 @@
     </div>
   </div>
 
-<div class="container-fluid py-0">
-  <div class="row flex-nowrap overflow-auto" style="width: 100vw;">
-    <div class="col-auto mr-3">
-      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
-        <i class="fa-solid fa-pizza-slice"></i>Italian
-      </div>
+
+<!-- This is the cards for the filters  -->
+
+  <div class="row flex-nowrap overflow-auto m-2" style="width: 100vw;">
+    <div class="col-auto mr-3 p-0" data-controller="type" data-action="change->type#select">
+      <input class="type" type="checkbox" id="italian" data-type-target="input">
+      <label for="italian"><i class="icon fa-solid fa-pizza-slice"></i><br>Italian</label>
     </div>
-    <div class="col-auto mr-3">
-      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
-        <i class="fa-solid fa-pepper-hot"></i>Mexican
-      </div>
+    <div class="col-auto mr-3 p-0" data-controller="type" data-action="change->type#select">
+      <input class="type" type="checkbox" id="mexican">
+      <label for="mexican"><i class="icon fa-solid fa-pepper-hot"></i><br>Mexican</label>
     </div>
-    <div class="col-auto mr-3">
-      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
-        <i class="fa-solid fa-bowl-food"></i>Indian
-      </div>
+    <div class="col-auto mr-3 p-0" data-controller="type" data-action="change->type#select">
+      <input class="type" type="checkbox" id="indian">
+      <label for="indian"><i class="icon fa-solid fa-bowl-food"></i><br>Indian</label>
     </div>
-    <div class="col-auto mr-3">
-      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
-        <i class="fa-solid fa-bowl-rice"></i>Chinese
-      </div>
+    <div class="col-auto mr-3 p-0" data-controller="type" data-action="change->type#select">
+      <input class="type" type="checkbox" id="chinese">
+      <label for="chinese"><i class="icon fa-solid fa-bowl-rice"></i><br>Chinese</label>
     </div>
-    <div class="col-auto mr-3">
-      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
-        <i class="fa-solid fa-shrimp"></i>Thai
-      </div>
+    <div class="col-auto mr-3 p-0" data-controller="type" data-action="change->type#select">
+      <input class="type" type="checkbox" id="thai">
+      <label for="thai"><i class="icon fa-solid fa-shrimp"></i><br>Thai</label>
     </div>
-    <div class="col-auto">
-      <div class="card card-body text-center" style="min-width: 100px; border-radius: 5px; height: 80%;">
-        <i class="fa-solid fa-burger"></i>American
-      </div>
+    <div class="col-auto mr-3 p-0" data-controller="type" data-action="change->type#select">
+      <input class="type" type="checkbox" id="american">
+      <label for="american"><i class="icon fa-solid fa-burger"></i><br>American</label>
     </div>
   </div>
-</div>
 
 </div>
 
 <%= render "list-card", restaurants:@restaurants%>
+
+
+
+
+
+
+
+
+<!-- Footer for the home page (do not render as I have had to do a manual thing - cyrus) -->
+<footer class="footer">
+    <nav class="footer-nav">
+        <div class="footer-section">
+            <a href="map">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/ofarf6aoairysld5eghg.png" alt="Home">
+                <span>Search</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="bookings">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/xfjzjdi2tbeyb8wwzoja.png" alt="About">
+                <span style="color: #E82E64">Queue</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="contact.html">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/hddpgefap6eu4ce1dmoe.png" alt="Contact">
+                <span>Account</span>
+            </a>
+        </div>
+    </nav>
+</footer>
+
+<!-- toggle for the view component -->
+<div class="fixed-button">
+    <a href="map">
+        <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715869457/rghwiicljemcv57a50ga.png" alt="Button Image">
+    </a>
+</div>
