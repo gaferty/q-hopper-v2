@@ -48,10 +48,6 @@
 
 
 
-
-
-
-
 <!-- Footer for the home page (do not render as I have had to do a manual thing - cyrus) -->
 <footer class="footer">
     <nav class="footer-nav">
@@ -68,9 +64,9 @@
             </a>
         </div>
         <div class="footer-section">
-            <a href="contact.html">
+            <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="dropdown-item">
                 <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/hddpgefap6eu4ce1dmoe.png" alt="Contact">
-                <span>Account</span>
+                <span>Log out</span>
             </a>
         </div>
     </nav>
