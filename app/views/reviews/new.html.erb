@@ -1,0 +1,82 @@
+
+    <div class="container_review">
+        <h1>Hopper Review</h1>
+        <img class="d-block w-100" src="https://source.unsplash.com/random/?restaurant" alt="First slide" id="img_review">
+        <div class="rating_review">
+            <p>Rate your experience</p>
+             <div class="rating-buttons">
+                <button class="rating-btn" data-rating="1">1</button>
+                <button class="rating-btn" data-rating="2">2</button>
+                <button class="rating-btn" data-rating="3">3</button>
+                <button class="rating-btn" data-rating="4">4</button>
+                <button class="rating-btn" data-rating="5">5</button>
+                <button class="rating-btn" data-rating="6">6</button>
+                <button class="rating-btn" data-rating="7">7</button>
+                <button class="rating-btn" data-rating="8">8</button>
+                <button class="rating-btn" data-rating="9">9</button>
+                <button class="rating-btn" data-rating="10">10</button>
+            </div>
+            <input type="hidden" name="rating" id="rating" value="">
+        </div>
+        <textarea class="feedback-textarea" placeholder="Write your feedback here..."></textarea>
+        <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+    </div>
+
+    <div class="review-card">
+    <div class="user-info">
+        <div class="user-avatar">
+
+            <img src="https://via.placeholder.com/40" alt="User Avatar">
+        </div>
+        <div class="user-name">Marco</div>
+    </div>
+    <div class="rating">
+
+        <span>Rating: 4.5</span>
+    </div>
+      <div class="comment_review_card">
+
+        <p>This was one of the best restaurants I have ever been. Great atmosphere and quality food.</p>
+      </div>
+
+</div>
+
+    <script>
+
+        const ratingButtons = document.querySelectorAll('.rating-btn');
+
+        ratingButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const ratingValue = button.getAttribute('data-rating');
+                document.getElementById('rating').value = ratingValue;
+
+                ratingButtons.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+
+                for (let i = 0; i < ratingValue; i++) {
+                    ratingButtons[i].classList.add('selected');
+                }
+            });
+        });
+
+
+        function submitReview() {
+            const rating = document.getElementById('rating').value;
+            const feedback = document.querySelector('.feedback-textarea').value;
+
+            if (rating && feedback) {
+                // Here you can add the code to submit the review (e.g., send data to a server)
+                alert('Review submitted successfully!');
+                // You can also redirect to another relevant site after submission
+                window.location.href = 'https://example.com'; // Redirect example
+            } else {
+                alert('Please select a rating and provide feedback.');
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
