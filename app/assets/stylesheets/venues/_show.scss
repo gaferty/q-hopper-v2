@@ -6,8 +6,42 @@
   position: relative;
 }
 
-.venue-queue-button{
-    position: absolute;
-    bottom: 0;
-    left: 15%;
+
+.venue-queue-position{
+  background-color: white;
+  border-radius:5px;
+  position: right;
+  text-align: center;
+  width: 100px;
+  margin-right: 2%;
+  margin-top: 2%;
+
+}
+
+.venue-queue-position p{
+  margin: 0;
+}
+
+.venue-queue-list{
+  padding-top: 2%;
+  height: 60vh;
+  scroll-behavior: smooth;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.venue-queue-list p{
+  margin: 0 auto;
+}
+
+.booking-success{
+  background-color: #B1E87A;
+}
+
+.booking-warning{
+  background-color: #F4BA4A ;
+}
+.booking-normals{
+
 }

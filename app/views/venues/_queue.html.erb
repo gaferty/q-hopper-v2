@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 class= 'mt-2'><%=title%></h2>
+  <%= render 'queue_info', value: groups.size, parameter: parameter%>
+  <div class="venue-queue-list pt-1 mt-2 bg-route">
+    <%if groups.empty?%>
+      <p class =d-flex align-items-center>Queue is empty</p>
+    <%else%>
+      <%groups.each do |group|%>
+        <%= render 'queue_card', name: group.user.name, group_size: rand(1...4), card_type: card_type%>
+      <%end%>
+    <%end%>
+  </div>
+</div>
