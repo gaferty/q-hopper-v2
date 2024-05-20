@@ -15,7 +15,7 @@
         end
 
       %>
-        <%= render 'queue_card', name: group.user.name, group_size: rand(1...4), card_type: card_type%>
+        <%= render 'queue_card', name: group.user.name, group_size: rand(1...4), card_type: card_type, update_timer: group.updated_at%>
       <%end%>
     <%end%>
   </div>
