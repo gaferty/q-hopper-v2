@@ -2,7 +2,7 @@
 <div class="venue-queue-container bg-light" >
   <div class="row w-60">
       <div class="col ">
-        <%= render 'queue', groups: @bookings.where(accepted:false), title: "Current Queue", parameter:"Queue Size", card_type: :normal %>
+        <%= render 'queue', groups: @bookings.where(accepted:false), title: "Current Queue", parameter:"Queue Size"%>
 
 
         <div class="d-flex justify-content-center p-3">
@@ -24,10 +24,10 @@
         </div>
 
         <div class="col">
-          <%= render 'queue', groups: @bookings.where(accepted:true), title: "Accepted Bookings", parameter: "On Route", card_type: :accepted%>
+          <%= render 'queue', groups: @bookings.where(accepted:true), title: "Accepted Bookings", parameter: "On Route"%>
         </div>
         <div class="col">
-          <%=render 'queue', groups: [], title: 'Reviews', parameter: 'Completed Bookings', card_type: :warning%>
+          <%=render 'queue', groups: [], title: 'Reviews', parameter: 'Completed Bookings'%>
         </div>
   </div>
 

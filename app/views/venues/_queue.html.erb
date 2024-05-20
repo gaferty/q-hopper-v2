@@ -6,6 +6,15 @@
       <p class =d-flex align-items-center>Queue is empty</p>
     <%else%>
       <%groups.each do |group|%>
+      <%if group.accepted
+          card_type = :accepted
+        elsif group.join
+          card_type = :warning
+        else
+          card_type = :normal
+        end
+
+      %>
         <%= render 'queue_card', name: group.user.name, group_size: rand(1...4), card_type: card_type%>
       <%end%>
     <%end%>
