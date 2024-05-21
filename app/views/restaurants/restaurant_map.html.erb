@@ -1,7 +1,17 @@
 
   <!-- This is the search bar -->
-
-
+  <div class="container-fluid py-0 fixed-section" data-controller="search-restaurants">
+  <div class="container-restaurant">
+    <%= form_with url: restaurants_path, method: :get, html: {class: "mb-4", data: {search_restaurants_target: "form"}} do |f|%>
+      <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: "Search for a restaurant",
+                        value: params[:query],
+                        data: {search_restaurants_target: "input",
+                        action: "keyup->search-restaurants#update"}%>
+      <%end%>
+  </div>
+</div>
 
 <div class="main-content">
     <div style="width: 100%; height: 700px;"
