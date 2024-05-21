@@ -4,20 +4,13 @@
 <div class="container-fluid py-3 fixed-section">
   <div class="btn-group d-flex justify-content-center" role="group" aria-label="Vertical radio toggle button group">
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
-    <label class="btn btn-outline-secondary" style="height: 30px; align-content: center;" for="vbtn-radio1">Queue</label>
+    <label class="btn btn-outline-secondary mx-2" style="height: 30px; align-content: center;" for="vbtn-radio1">Queue</label>
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
-    <label class="btn btn-outline-secondary" style="height: 30px; align-content: center;" for="vbtn-radio2">Completed</label>
+    <label class="btn btn-outline-secondary mx-2" style="height: 30px; align-content: center;" for="vbtn-radio2">Completed</label>
   </div>
 </div>
 
 <%= render 'booking_card', booking_infos: @booking_infos%>
-
-
-
-
-
-
-
 
 
 <!-- Footer for the Queue (do not render as I have had to do a manual thing - cyrus) -->
