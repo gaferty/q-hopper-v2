@@ -7,22 +7,35 @@ export default class extends Controller {
     interval: { default: 1000, type: Number},
     local: { default: 'en-GB', type: String},
     from: String,
-    to: {default: Date.now(), type: Number}
+    to: {default: Date.now(), type: Number},
+    updatedAt: String,
+    text: String
   }
   connect(){
-    console.log('You are connected to the countdown')
     this._timer = setInterval(() => this.update(), this.intervalValue)
+    this.toValue = this.convertDateTime(this.textValue)
   }
   update(){
-    const time_elapsed = Math.floor((Date.now() - this.toValue) / 1000)
+    const time_elapsed = Math.floor((this.toValue - Date.now()) / 1000)
+    if ( time_elapsed < 0 ) {
+
+    }
     const tensOfSeconds = Math.floor(time_elapsed/10) % 6
     const hundredsOfSeconds = time_elapsed% 10
     this.timerTarget.innerText= `${Math.floor(time_elapsed/60)}:${tensOfSeconds}${hundredsOfSeconds}`
   }
   stopTimer(){
+    const timer = this._timer;
 
+    if (!timer) return;
+
+    clearInterval(timer);
+  }
+   convertDateTime(time){
+    const time_to = new Date(time);
+    return time_to.getTime() + 5 * 60000
   }
   disconnect(){
-    this.stopTimer;
+    this.stopTimer();
   }
 }

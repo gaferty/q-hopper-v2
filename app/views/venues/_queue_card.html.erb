@@ -12,5 +12,5 @@
   </div>
 </div>
 <%if card_type == :accepted || card_type == :warning%>
-  <%= render 'time_left'%>
+  <%= render 'time_left', updated_at: DateTime.now%>
 <%end%>
