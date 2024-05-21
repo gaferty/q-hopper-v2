@@ -63,5 +63,6 @@ export default class extends Controller {
   }
   disconnect(){
     this.stopTimer();
+    location.reload()
   }
 }
