@@ -12,5 +12,5 @@
   </div>
 </div>
 <%if card_type == :accepted || card_type == :warning%>
-  <%= render 'time_left', updated_at: DateTime.now%>
+  <%= render 'time_left', updated_at: DateTime.now, booking_id: %>
 <%end%>
