@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :bookings
+  resources :bookings do
+
+  end
   # Restaurant user view
   resources :venues do
     post '/add_group', to: 'venues#add_group'

@@ -1,16 +1,19 @@
-<%card_types = {accepted: 'booking-success', warning: 'booking-warning', normal: "" }%>
+<div>
+  <%card_types = {accepted: 'booking-success', warning: 'booking-warning', normal: "" }%>
 
-<div class="card mt-1 <%=card_types[card_type]%> rounded-4">
-  <div class="card-body">
-    <div class="d-flex justify-content-between">
-      <h5 class= "card-title text-start"><%= name %></h5>
-      <div class="queue-position p-1">
-        <p><%= group_size%></p>
-        seats
+  <div class="card mt-1 <%=card_types[card_type]%> rounded-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h5 class= "card-title text-start"><%= name %></h5>
+        <div class="queue-position p-1">
+          <p><%= group_size%></p>
+          seats
+        </div>
       </div>
     </div>
   </div>
+  <%if card_type == :accepted || card_type == :warning%>
+    <%= render 'time_left', updated_at: updated_at, booking_id: booking_id, card_type: card_type%>
+  <%end%>
+
 </div>
-<%if card_type == :accepted || card_type == :warning%>
-  <%= render 'time_left', updated_at: DateTime.now, booking_id: %>
-<%end%>

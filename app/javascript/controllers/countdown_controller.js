@@ -7,34 +7,61 @@ export default class extends Controller {
     interval: { default: 1000, type: Number},
     local: { default: 'en-GB', type: String},
     from: String,
-    to: {default: Date.now(), type: Number},
-    updatedAt: String,
-    text: String
+    to: Number,
+    text: String,
+    cardType: String,
+    booking: Number
   }
   connect(){
     this._timer = setInterval(() => this.update(), this.intervalValue)
-    this.toValue = this.convertDateTime(this.textValue)
+    this.toValue = this.setTimerValues()
+    this.getCSRF()
   }
   update(){
     const time_elapsed = Math.floor((this.toValue - Date.now()) / 1000)
     if ( time_elapsed < 0 ) {
-
+      this.deleteBooking(this.bookingValue)
+      this.disconnect()
     }
+    const minutes = Math.floor(time_elapsed/60)
     const tensOfSeconds = Math.abs(Math.floor(time_elapsed/10) % 6)
     const hundredsOfSeconds = Math.abs(time_elapsed% 10)
-    this.timerTarget.innerText= `${Math.floor(time_elapsed/60)}:${tensOfSeconds}${hundredsOfSeconds}`
+    this.timerTarget.innerText= `${minutes}:${tensOfSeconds}${hundredsOfSeconds} minutes left!`
   }
   stopTimer(){
     const timer = this._timer;
     if (!timer) return;
     clearInterval(timer);
   }
-   convertDateTime(time){
+
+  deleteBooking(id){
+    fetch(`/bookings/${this.bookingValue}`,{
+      method: "delete",
+      headers:{
+        "Accept": "application/json",
+        'X-CSRF-Token': this.getCSRF()
+      }
+    })
+
+  }
+
+  getCSRF(){
+    const meta = document.querySelector('meta[name=csrf-token]');
+    return meta.content
+  }
+  setTimerValues(){
+
+    if (this.cardTypeValue === 'accepted') {
+      return this.convertDateTime(this.textValue, 15)
+    } else {
+      return this.convertDateTime(this.textValue, 5)
+    }
+  }
+   convertDateTime(time,amount){
     const time_to = new Date(time);
-    return time_to.getTime() + 5 * 60000
+    return time_to.getTime() + ( amount * 60000 )
   }
   disconnect(){
     this.stopTimer();
-    fetch('/')
   }
 }
