@@ -55,6 +55,7 @@
       <!-- Restaurant Details -->
       <h6 class="mt-3">Address:</h6>
       <p class="p-show"><%= restaurant_alert.address %></p>
+       <%=render 'shared/booking_time_left', booking_id: booking_id, card_type: 'warning', updated_at: Booking.find(booking_id).updated_at %>
 
 
 

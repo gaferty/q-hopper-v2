@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
 
   end
+  # Booking routes
   resources :bookings
   # Restaurant user view
   resources :venues do

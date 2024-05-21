@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class= 'mt-2'><%=title%></h2>
+  <h2 class= 'mt-2 text-center'><%=title%></h2>
   <%= render 'queue_info', value: groups.size, parameter: parameter%>
   <div class="venue-queue-list pt-1 mt-2 bg-route">
     <%if groups.empty?%>
@@ -15,7 +15,7 @@
         end
 
       %>
-        <%= render 'queue_card', name: group.user.name, group_size: rand(1...4), card_type: card_type%>
+        <%= render 'queue_card', name: group.user.name, group_size: rand(1...4), card_type: card_type, updated_at: group.updated_at, booking_id: group.id%>
       <%end%>
     <%end%>
   </div>
