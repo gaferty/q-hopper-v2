@@ -51,42 +51,43 @@
   </div>
 
   <!-- Restaurant Details -->
-  <h6 class="mt-3">Details:</h6>
-  <p class="p-show"><%= @restaurant.details %></p>
+  <h6 class="mt-3 text-center"><strong>Details</strong></h6>
+  <p class="p-show text-center"><%= @restaurant.details %></p>
 
-  <h6 class="mt-3">Address:</h6>
-  <p class="p-show"><%= @restaurant.address %></p>
+  <h6 class="mt-3 text-center"><strong>Address</strong></h6>
+  <p class="p-show text-center"><%= @restaurant.address %></p>
 
+  <h6 class="mt-3 text-center"><strong>Reviews</strong></h6>
 
 
   <!-- Review Card Final -->
-  <div class="review-card-final">
 
-  <div class="review-card">
-      <div class="user-info">
-          <div class="user-avatar">
-
-              <img src="https://via.placeholder.com/40" alt="User Avatar">
-          </div>
-          <div class="user-name">Marco</div>
-      </div>
-      <div class="rating">
-
-          <span>Rating: 4.5</span>
-      </div>
-        <div class="comment_review_card">
-
-          <p>This was one of the best restaurants I have ever been. Great atmosphere and quality food.</p>
+   <% @reviews.each do |review| %>
+    <div class="review-card-final">
+      <div class="review-card">
+        <div class="user-info">
+            <div class="user-avatar">
+              <img src="https://source.unsplash.com/random/?user" alt="User Avatar">
+            </div>
+          <div class="user-name"><%= review.user.name %></div>
         </div>
 
-  </div>
+        <div class="rating">
+        <span>Rating: <%= review.rating %></span>
+        </div>
 
-  </div>
+        <div class="comment_review_card">
+          <h2><%= review.comment %></h2>
+        </div>
 
+        <div class="comment_review_card">
+          <p><%= review.created_at.strftime("%B %d, %Y") %></p>
+        </div>
+
+      </div>
+     </div>
+  <% end %>
 </div>
-
-
-
 
 
 <!-- Back button -->

@@ -1,16 +1,19 @@
 
 
-<div class="container-fluid py-0 fixed-section">
+<div class="container-fluid py-0 fixed-section" data-controller="search-restaurants">
 
   <!-- This is the search bar -->
 
   <div class="container-restaurant">
-    <div class="input-group">
-      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-      <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
-    </div>
+    <%= form_with url: restaurants_path, method: :get, html: {class: "mb-4", data: {search_restaurants_target: "form"}} do |f|%>
+      <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: "Search for a restaurant",
+                        value: params[:query],
+                        data: {search_restaurants_target: "input",
+                        action: "keyup->search-restaurants#update"}%>
+      <%end%>
   </div>
-
 
 <!-- This is the cards for the filters  -->
 
@@ -41,11 +44,11 @@
     </div>
   </div>
 
+  <div class="card-container">
+    <%= render "list-card", restaurants:@restaurants%>
+  </div>
+
 </div>
-
-<%= render "list-card", restaurants:@restaurants%>
-
-
 
 
 <!-- Footer for the home page (do not render as I have had to do a manual thing - cyrus) -->

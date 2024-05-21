@@ -4,10 +4,19 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+      if params[:query].present?
+        @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+      end
+
+      respond_to do |format|
+        format.html
+        format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+      end
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @reviews = @restaurant.reviews
   end
 
   def new
