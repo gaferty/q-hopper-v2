@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
 
   def show_restaurant
-    @restaurant_alert = Restaurant.find(1)
+   # @restaurant_alert = Restaurant.find(1)
 
   end
 end
