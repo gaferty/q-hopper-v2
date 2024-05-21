@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
+    @booking_status = Booking.find_by(restaurant_id: @restaurant.id, user: current_user)
   end
 
   def new
