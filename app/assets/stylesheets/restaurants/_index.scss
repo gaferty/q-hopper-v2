@@ -4,7 +4,6 @@
 
 .fixed-section {
   position: fixed;
-  background-color: yellow;
   top: 50px;
   left: 0;
   width: 100%;
@@ -28,10 +27,18 @@
   width: calc(60% - 5px); /* Adjust width as needed */
 }
 
+.row.flex-nowrap {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .row.flex-nowrap.overflow-auto::-webkit-scrollbar {
   display: none; /* Hide scrollbar */
 }
 
+.col-auto {
+  display: inline-block;
+}
 
 /* Hide the checkboxes */
 .type {
@@ -66,4 +73,10 @@ label:hover {
 /* Style for when checkboxes are checked */
 .type:checked + label {
   background-color: #FFD9E9;
+}
+
+/* Ensure the card container is scrollable */
+.card-container {
+  max-height: 80vh; /* Adjust based on your layout */
+  overflow-y: auto;
 }
