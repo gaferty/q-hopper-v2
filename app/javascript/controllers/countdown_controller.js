@@ -20,15 +20,13 @@ export default class extends Controller {
     if ( time_elapsed < 0 ) {
 
     }
-    const tensOfSeconds = Math.floor(time_elapsed/10) % 6
-    const hundredsOfSeconds = time_elapsed% 10
+    const tensOfSeconds = Math.abs(Math.floor(time_elapsed/10) % 6)
+    const hundredsOfSeconds = Math.abs(time_elapsed% 10)
     this.timerTarget.innerText= `${Math.floor(time_elapsed/60)}:${tensOfSeconds}${hundredsOfSeconds}`
   }
   stopTimer(){
     const timer = this._timer;
-
     if (!timer) return;
-
     clearInterval(timer);
   }
    convertDateTime(time){
@@ -37,5 +35,6 @@ export default class extends Controller {
   }
   disconnect(){
     this.stopTimer();
+    fetch('/')
   }
 }
