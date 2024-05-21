@@ -36,7 +36,25 @@ end
   user = User.find_by_email("user#{x}@email.com")
   5.times do |x|
     Booking.create(user: user, restaurant_id: x, accepted: false, completed: false, join: false)
-
   end
+end
 
+restaurants = Restaurant.all
+users = User.all
+
+restaurants.each do |restaurant|
+  num_reviews = rand(1..5)
+  num_reviews.times do
+    user = users.sample
+
+    rating = Faker::Number.between(from: 5, to: 10)
+    comment = Faker::Restaurant.review
+
+    review = Review.create(
+      restaurant_id: restaurant.id,
+      user_id: user.id,
+      rating: rating,
+      comment: comment
+    )
+  end
 end
