@@ -17,7 +17,7 @@
           <%= render 'queue', groups: @bookings.where(completed:false, accepted:true), title: "Accepted Bookings", parameter: "On Route"%>
         </div>
         <div class="col">
-          <%=render 'queue', groups: [], title: 'Reviews', parameter: 'Completed Bookings'%>
+          <%=render 'queue', groups: @bookings.where(completed:true, accepted:true), title: 'Reviews', parameter: 'Completed Bookings'%>
         </div>
   </div>
 
