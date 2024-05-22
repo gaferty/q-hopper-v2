@@ -6,13 +6,6 @@
 
 
         <div class="d-flex justify-content-center p-3">
-          <%if @bookings.where(accepted:false, completed:false, join:false).empty?%>
-
-              <div class="add-booking">
-                <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-lg btn-info disabled rounded'%>
-            </div>
-          <%else%>
-          <%end%>
 
         </div>
 
@@ -32,6 +25,12 @@
 <div class="d-flex justify-content-center mt-4">
 
   <div class="add-booking d-flex justify-content-centre">
-    <%= button_to "Accept next group", venue_add_group_path(@venue), class: 'btn btn-lg btn-primary rounded-5 text-white'%>
+    <%if @bookings.where(accepted:false, completed:false, join:false).empty?%>
+      <div class="add-booking">
+          <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-lg btn-info disabled rounded-5'%>
+      </div>
+    <%else%>
+      <%= button_to "Accept next group", venue_add_group_path(@venue), class: 'btn btn-lg btn-primary rounded-5 text-white'%>
+    <%end%>
   </div>
 </div>
