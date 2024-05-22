@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
         booking: booking,
         queue_position: Booking.where("restaurant_id=? AND created_at >= ? AND accepted = false",booking.restaurant_id, booking.created_at).count
       }
-
     end
   end
 
@@ -63,4 +62,6 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
+
+
 end

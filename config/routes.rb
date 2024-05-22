@@ -11,17 +11,25 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get '/map', to: 'restaurants#restaurant_map'
+  get '/map', to: 'restaurants#restaurant_map', as: :restaurant_map
   get '/test', to: 'restaurants#test'
+
+
   resources :restaurants do
 
     resources :reviews, only:[:index, :new, :create, :show]
     post '/join_queue',  to: 'bookings#join_queue'
     patch '/accept_booking', to: 'bookings#accept_booking'
-    resources :bookings, only: [:new, :create, :edit, :update] do
+    resources :bookings, only: [:new, :create, :edit, :update]
 
-    end
-
+      collection do
+        get '/italian', to: 'restaurants#italian'
+        get '/mexican', to: 'restaurants#mexican'
+        get '/indian', to: 'restaurants#indian'
+        get '/chinese', to: 'restaurants#chinese'
+        get '/thai', to: 'restaurants#thai'
+        get '/american', to: 'restaurants#american'
+      end
   end
   # Booking routes
   resources :bookings

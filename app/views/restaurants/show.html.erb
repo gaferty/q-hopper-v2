@@ -12,7 +12,7 @@
   <div class="row mt-2">
 
     <div class="col-4 col-custom">
-      <div class="card rounded-custom" style="height: 80px;">
+      <div class="card rounded-custom" style="height: 80px; background-color: white;border-radius: 10px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
         <div class="card-body text-center">
           <div>
           <h1><i class="fa-solid fa-pizza-slice"></i></h1>
@@ -26,7 +26,7 @@
 
 
     <div class="col-4 col-custom">
-      <div class="card rounded-custom" style="height: 80px;">
+      <div class="card rounded-custom" style="height: 80px; background-color: white;border-radius: 10px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
         <div class="card-body text-center">
           <h1>7.9</h1>
           <div>
@@ -38,7 +38,7 @@
 
 
     <div class="col-4 col-custom">
-      <div class="card rounded-custom" style="height: 80px;">
+      <div class="card rounded-custom" style="height: 80px; background-color: white;border-radius: 10px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
         <div class="card-body text-center">
           <h1>15</h1>
           <div>
@@ -91,16 +91,20 @@
 
 
 <!-- Back button -->
-<!-- DELETE ME -->
-
 <div class="button-container">
-  <a href="<%= restaurants_path %>" class="back-to-top">
+  <a href="javascript:history.back()" class="back-to-top">
     <div class="button rounded-left">
       <i class="fas fa-arrow-left"></i>
     </div>
   </a>
   <!-- Second button -->
+  <%if !@booking_status%>
+    <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
 
-  <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
+  <%elsif !@booking_status.join%>
+    <%=link_to "Leave Queue", booking_path(@booking_status.id), class:"button rounded-right", data:{turbo_method: :delete, confirm: "Are you sure?"}%>
+  <%else%>
+
+  <%end%>
 
 </div>

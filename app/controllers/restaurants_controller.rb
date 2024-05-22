@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
+    @booking_status = Booking.find_by(restaurant_id: @restaurant.id, user: current_user)
   end
 
   def new
@@ -43,6 +44,86 @@ class RestaurantsController < ApplicationController
       }
     end
   end
+
+  def italian
+    @restaurants = Restaurant.where(cuisine: "Italian")
+
+    if params[:query].present?
+      @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+    end
+  end
+
+  def mexican
+    @restaurants = Restaurant.where(cuisine: "Mexican")
+
+    if params[:query].present?
+      @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+    end
+  end
+
+  def indian
+    @restaurants = Restaurant.where(cuisine: "Indian")
+
+    if params[:query].present?
+      @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+    end
+  end
+
+  def chinese
+    @restaurants = Restaurant.where(cuisine: "Chinese")
+
+    if params[:query].present?
+      @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+    end
+  end
+
+  def thai
+    @restaurants = Restaurant.where(cuisine: "Thai")
+
+    if params[:query].present?
+      @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+    end
+  end
+
+  def american
+    @restaurants = Restaurant.where(cuisine: "American")
+
+    if params[:query].present?
+      @restaurants = @restaurants.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list-card', locals: { restaurants: @restaurants}, formats: [:html] }
+    end
+  end
+
+
   private
 
   def restaurant_params
