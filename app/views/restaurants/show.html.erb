@@ -98,13 +98,13 @@
     </div>
   </a>
   <!-- Second button -->
-  <%if !@booking_status%>
+  <%if !@booking_status || @booking_status.completed == true%>
     <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
 
   <%elsif !@booking_status.join%>
     <%=link_to "Leave Queue", booking_path(@booking_status.id), class:"button rounded-right", data:{turbo_method: :delete, confirm: "Are you sure?"}%>
   <%else%>
-
+    <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
   <%end%>
 
 </div>
