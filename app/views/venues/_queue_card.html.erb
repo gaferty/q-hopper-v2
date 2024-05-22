@@ -1,8 +1,8 @@
-<div>
+<div data-controller='accept-booking' data-accept-booking-booking-id-value= "<%=booking_id%>">
   <%card_types = {accepted: 'booking-success', warning: 'booking-warning', normal: "" }%>
 
-  <div class="card mt-1 <%=card_types[card_type]%> rounded-4">
-    <div class="card-body">
+  <div class="card mt-1 <%=card_types[card_type]%> rounded-4" data-action = "<%=card_type == :accepted ? 'click->acceptBooking#arrived': ''%>">
+    <div class="card-body" data-action = "click->accept-booking#arrived">
       <div class="d-flex justify-content-between">
         <h5 class= "card-title text-start"><%= name %></h5>
         <div class="queue-position p-1">

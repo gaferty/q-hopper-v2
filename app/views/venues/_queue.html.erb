@@ -6,7 +6,9 @@
       <p class =d-flex align-items-center>Queue is empty</p>
     <%else%>
       <%groups.each do |group|%>
-      <%if group.accepted
+      <%if group.completed
+          card_type = :normal
+        elsif group.accepted
           card_type = :accepted
         elsif group.join
           card_type = :warning

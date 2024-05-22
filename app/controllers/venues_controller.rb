@@ -2,10 +2,11 @@ class VenuesController < ApplicationController
   before_action :set_venue, only: [:show]
   def index
     @venues = Restaurant.where(user: current_user)
+    @bookings = Booking.includes(:restaurant).where(restaurant: {user: current_user})
   end
 
   def show
-    @bookings = Booking.includes(:user).where(restaurant: @venue)
+    @bookings = Booking.where(restaurant: @venue)
   end
 
   def add_group

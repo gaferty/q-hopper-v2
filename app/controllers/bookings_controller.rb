@@ -49,6 +49,11 @@ class BookingsController < ApplicationController
     redirect_to completed_bookings_path
   end
 
+  def complete_booking
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(completed: true)
+  end
+
   def destroy
     @booking.destroy()
     redirect_to bookings_path

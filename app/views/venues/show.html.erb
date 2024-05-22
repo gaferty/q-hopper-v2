@@ -1,21 +1,11 @@
-<h1 class="text-center"> <%=@venue.name%>  </h1>
-<div class="venue-queue-container bg-light" >
+<h1 class="text-center"> <strong> <%=@venue.name%> </strong>   </h1>
+<div class="venue-queue-container bg-light rounded-5" >
   <div class="row w-60">
       <div class="col ">
         <%= render 'queue', groups: @bookings.where(accepted:false), title: "Current Queue", parameter:"Queue Size"%>
 
 
         <div class="d-flex justify-content-center p-3">
-          <%if @bookings.where(accepted:false, completed:false, join:false).empty?%>
-
-              <div class="add-booking">
-                <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-lg btn-info disabled rounded'%>
-            </div>
-          <%else%>
-            <div class="add-booking">
-              <%= button_to "Accept next group", venue_add_group_path(@venue), class: 'btn btn-lg btn-primary rounded-5 text-white'%>
-            </div>
-          <%end%>
 
         </div>
 
@@ -24,11 +14,23 @@
         </div>
 
         <div class="col">
-          <%= render 'queue', groups: @bookings.where(accepted:true), title: "Accepted Bookings", parameter: "On Route"%>
+          <%= render 'queue', groups: @bookings.where(completed:false, accepted:true), title: "Accepted Bookings", parameter: "On Route"%>
         </div>
         <div class="col">
-          <%=render 'queue', groups: [], title: 'Reviews', parameter: 'Completed Bookings'%>
+          <%=render 'queue', groups: @bookings.where(completed:true, accepted:true), title: 'Reviews', parameter: 'Completed Bookings'%>
         </div>
   </div>
 
+</div>
+<div class="d-flex justify-content-center mt-4">
+
+  <div class="add-booking d-flex justify-content-centre">
+    <%if @bookings.where(accepted:false, completed:false, join:false).empty?%>
+      <div class="add-booking">
+          <%= button_to "Accept next group", venue_add_group_path(@venue),class: 'btn btn-lg btn-info disabled rounded-5'%>
+      </div>
+    <%else%>
+      <%= button_to "Accept next group", venue_add_group_path(@venue), class: 'btn btn-lg btn-primary rounded-5 text-white'%>
+    <%end%>
+  </div>
 </div>

@@ -1,4 +1,16 @@
-<h1>Index page</h1>
-<%@venues.each do |venue|%>
-  <p>  <%=venue.name%> <%=venue.id%></p>
-<%end%>
+<h1 class='text-center'> <strong>Your Venues</strong></h1>
+<div class="venue-container-grid">
+  <div class="row">
+    <%@venues.each do |venue|%>
+      <div class="col">
+      <%= render 'restaurant_card', restaurant: venue, booking_amount: Booking.where(restaurant: venue, join: false).count%>
+      </div>
+    <%end%>
+
+  </div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Log out!", destroy_user_session_path, class: 'btn btn-lg btn-primary text-white', data: {turbo_method:'delete', confirm: "Are you sure?"}%>
+</div>
