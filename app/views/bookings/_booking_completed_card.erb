@@ -1,0 +1,25 @@
+<div class="container" style="padding-top: 25px; padding-bottom: 100px;">
+  <% @bookings.each do |booking|%>
+<div class="card-booking" style="background-image: linear-gradient(rgba(18, 16, 16, 0.9), rgba(62, 53, 53, 0.5)), url('https://source.unsplash.com/random/?restaurant&<%= rand(1000) %>'); background-size: cover; background-position: center;">
+    <div class="card-header">
+        <h2><%= booking.restaurant.name%></h2>
+          <div class="queue-position" style="text-align: center;">
+            <div>
+              <span class="number" style="text-align: bottom;">15</span>
+            </div>
+            <div>
+              <span class="text">min</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="footer-button-s">
+            <a href="<%= restaurant_path(booking.restaurant.id) %>">Details</a>
+        </div>
+            <div class="footer-button">
+            <a href="<%= new_restaurant_review_path(booking.restaurant_id) %>">Leave Review</a>
+        </div>
+    </div>
+</div>
+  <%end%>
+</div>

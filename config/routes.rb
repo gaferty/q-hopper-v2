@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :reviews, only:[:index, :new, :create, :show]
     post '/join_queue',  to: 'bookings#join_queue'
     patch '/accept_booking', to: 'bookings#accept_booking'
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: [:new, :create, :edit, :update,]
 
       collection do
         get '/italian', to: 'restaurants#italian'
@@ -32,7 +32,9 @@ Rails.application.routes.draw do
       end
   end
   # Booking routes
-  resources :bookings
+  resources :bookings do
+    get :completed, on: :collection
+  end
   # Restaurant user view
   resources :venues do
     post '/add_group', to: 'venues#add_group'

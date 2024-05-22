@@ -3,12 +3,12 @@
 
 <div class="container-fluid py-3 fixed-section">
   <div class="btn-group d-flex justify-content-center" role="group" aria-label="Vertical radio toggle button group">
-    <a href="<%= bookings_path %>" class="btn btn-outline-primary mx-2" style="height: 30px; width: 50%; align-content: center;">Queue</a>
-    <a href="<%= completed_bookings_path %>" class="btn btn-outline-secondary mx-2" style="height: 30px; width: 50%; align-content: center;">Completed</a>
+    <a href="<%= bookings_path %>" class="btn btn-outline-secondary mx-2" style="height: 30px; width: 50%; align-content: center;">Queue</a>
+    <a href="<%= completed_bookings_path %>" class="btn btn-outline-primary mx-2" style="height: 30px; width: 50%; align-content: center;">Completed</a>
   </div>
 </div>
 
-<%= render 'booking_card', booking_infos: @booking_infos%>
+<%= render 'booking_completed_card', booking_infos: @bookings%>
 
 
 <!-- Footer for the Queue (do not render as I have had to do a manual thing - cyrus) -->

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :new, :create, :destroy]
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = Booking.where(user_id: current_user.id, accepted: false)
     #For each of the bookings return the results before the created date timestamp
     @booking_infos = []
     @bookings.each do |booking|
@@ -46,12 +46,16 @@ class BookingsController < ApplicationController
     user = @booking.user
 
     Booking.where(user: @booking.user,accepted: false).destroy_all
-    redirect_to bookings_path
+    redirect_to completed_bookings_path
   end
 
   def destroy
     @booking.destroy()
     redirect_to bookings_path
+  end
+
+  def completed
+    @bookings = Booking.where(user_id: current_user.id, accepted: true)
   end
 
   private
