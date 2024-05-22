@@ -91,8 +91,6 @@
 
 
 <!-- Back button -->
-<!-- DELETE ME -->
-
 <div class="button-container">
   <a href="javascript:history.back()" class="back-to-top">
     <div class="button rounded-left">
@@ -100,7 +98,13 @@
     </div>
   </a>
   <!-- Second button -->
+  <%if !@booking_status%>
+    <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
 
-  <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
+  <%elsif !@booking_status.join%>
+    <%=link_to "Leave Queue", booking_path(@booking_status.id), class:"button rounded-right", data:{turbo_method: :delete, confirm: "Are you sure?"}%>
+  <%else%>
+
+  <%end%>
 
 </div>
