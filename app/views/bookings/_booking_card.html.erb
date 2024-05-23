@@ -1,12 +1,9 @@
-<div class="container" style="padding-top: 25px; padding-bottom: 100px;">
-  <% booking_infos.each do |booking_info|%>
-  <%booking= booking_info[:booking]%>
 <div class="card-booking" style="background-image: linear-gradient(rgba(18, 16, 16, 0.9), rgba(62, 53, 53, 0.5)), url('https://source.unsplash.com/random/?restaurant&<%= rand(1000) %>'); background-size: cover; background-position: center;">
     <div class="card-header">
         <h2><%= booking.restaurant.name%></h2>
         <div class="queue-position" style="text-align: center;">
             <div>
-              <span class="number" style="text-align: bottom;"><%=booking_info[:queue_position]%></span>
+              <span class="number" style="text-align: bottom;"><%=queue_position%></span>
             </div>
             <div>
               <span class="text">Que Position</span>
@@ -17,14 +14,25 @@
         <p class="rating"><strong>Rating:</strong> 10/10</p>
         <p class="est-time"><strong>Est Time:</strong> 15 min</p>
     </div>
-    <div class="card-footer">
-        <div class="footer-button-s">
-            <a href="<%= restaurant_path(booking.restaurant.id) %>">Details</a>
-        </div>
-        <div class="footer-button">
-            <a href="<%= booking_path(booking.id) %>" data-turbo-method="delete">Leave Queue</a>
-        </div>
-    </div>
-</div>
-  <%end%>
+
+    <%if status == 'joined'%>
+      <div class="card-footer">
+          <div class="footer-button-s">
+              <a href="<%= booking_path(booking.id) %>" data-turbo-method="delete">Leave Queue</a>
+          </div>
+          <div class="footer-button">
+              <a href="<%= restaurant_accept_booking_path(booking.id) %>"> Accept Booking</a>
+          </div>
+      </div>
+
+    <%else%>
+      <div class="card-footer">
+          <div class="footer-button-s">
+              <a href="<%= restaurant_path(booking.restaurant.id) %>">Details</a>
+          </div>
+          <div class="footer-button">
+              <a href="<%= booking_path(booking.id) %>" data-turbo-method="delete">Leave Queue</a>
+          </div>
+      </div>
+    <%end%>
 </div>

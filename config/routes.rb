@@ -20,19 +20,23 @@ Rails.application.routes.draw do
     resources :reviews, only:[:index, :new, :create, :show]
     post '/join_queue',  to: 'bookings#join_queue'
     patch '/accept_booking', to: 'bookings#accept_booking'
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: [:new, :create, :edit, :update,]
 
-      collection do
-        get '/italian', to: 'restaurants#italian'
-        get '/mexican', to: 'restaurants#mexican'
-        get '/indian', to: 'restaurants#indian'
-        get '/chinese', to: 'restaurants#chinese'
-        get '/thai', to: 'restaurants#thai'
-        get '/american', to: 'restaurants#american'
-      end
+    collection do
+      get '/italian', to: 'restaurants#italian'
+      get '/mexican', to: 'restaurants#mexican'
+      get '/indian', to: 'restaurants#indian'
+      get '/chinese', to: 'restaurants#chinese'
+      get '/thai', to: 'restaurants#thai'
+      get '/american', to: 'restaurants#american'
+    end
   end
   # Booking routes
-  resources :bookings
+  resources :bookings do
+    patch :complete_booking, on: :collection
+
+    get :completed, on: :collection
+  end
   # Restaurant user view
   resources :venues do
     post '/add_group', to: 'venues#add_group'

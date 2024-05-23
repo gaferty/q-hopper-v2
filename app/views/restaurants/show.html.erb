@@ -67,7 +67,7 @@
       <div class="review-card">
         <div class="user-info">
             <div class="user-avatar">
-              <img src="https://source.unsplash.com/random/?user" alt="User Avatar">
+              <img src="https://source.unsplash.com/random/?profile&<%= rand(1000) %>" style="background-size: cover; height: 55px;" alt="User Avatar">
             </div>
           <div class="user-name"><%= review.user.name %></div>
         </div>
@@ -98,13 +98,13 @@
     </div>
   </a>
   <!-- Second button -->
-  <%if !@booking_status%>
+  <%if !@booking_status || @booking_status.completed == true%>
     <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
 
   <%elsif !@booking_status.join%>
     <%=link_to "Leave Queue", booking_path(@booking_status.id), class:"button rounded-right", data:{turbo_method: :delete, confirm: "Are you sure?"}%>
   <%else%>
-
+    <%=link_to "Join Queue", restaurant_join_queue_path(@restaurant.id), class:"button rounded-right", data:{turbo_method: :post}%>
   <%end%>
 
 </div>

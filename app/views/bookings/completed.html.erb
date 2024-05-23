@@ -1,0 +1,36 @@
+
+<!-- This is the  Que / Completed toggle -->
+
+<div class="container-fluid py-3 fixed-section">
+  <div class="btn-group d-flex justify-content-center" role="group" aria-label="Vertical radio toggle button group">
+    <a href="<%= bookings_path %>" class="btn btn-outline-secondary mx-2" style="height: 30px; width: 50%; align-content: center;">Queue</a>
+    <a href="<%= completed_bookings_path %>" class="btn btn-outline-primary mx-2" style="height: 30px; width: 50%; align-content: center;">Completed</a>
+  </div>
+</div>
+
+<%= render 'booking_completed_card', booking_infos: @bookings%>
+
+
+<!-- Footer for the Queue (do not render as I have had to do a manual thing - cyrus) -->
+<footer class="footer">
+    <nav class="footer-nav">
+        <div class="footer-section">
+            <a href="<%= restaurant_map_path %>">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/ofarf6aoairysld5eghg.png" alt="Home">
+                <span>Search</span>
+            </a>
+        </div>
+        <div class="footer-section">
+            <a href="<%= bookings_path %>">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/xfjzjdi2tbeyb8wwzoja.png" alt="About">
+                <span style="color: #E82E64">Queue</span>
+            </a>
+        </div>
+               <div class="footer-section">
+            <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="dropdown-item">
+                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/hddpgefap6eu4ce1dmoe.png" alt="Contact">
+                <span>Account</span>
+            </a>
+        </div>
+    </nav>
+</footer>
