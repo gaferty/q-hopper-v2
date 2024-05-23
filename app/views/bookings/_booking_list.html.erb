@@ -1,0 +1,6 @@
+<div class="container" style="padding-top: 25px; padding-bottom: 100px;">
+  <% booking_infos.each do |booking_info|%>
+    <%booking= booking_info[:booking]%>
+    <%= render 'booking_card', booking: booking, queue_position: booking_info[:queue_position], status: 'not_joined'%>
+  <%end%>
+</div>

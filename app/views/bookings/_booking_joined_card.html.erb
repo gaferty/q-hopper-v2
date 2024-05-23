@@ -1,0 +1,28 @@
+<div class="card-booking" style="background-image: linear-gradient(rgba(18, 16, 16, 0.9), rgba(62, 53, 53, 0.5)), url('https://source.unsplash.com/random/?restaurant&<%= rand(1000) %>'); background-size: cover; background-position: center;">
+    <div class="card-header">
+        <h2><%= booking.restaurant.name%></h2>
+        <div class="queue-position" style="text-align: center;">
+            <div>
+              <span class="number" style="text-align: bottom;"> 5</span>
+            </div>
+            <div>
+              <span class="text">Time left</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="rating"><strong>Rating:</strong> 10/10</p>
+    </div>
+
+
+    <div class="card-footer">
+        <div class="footer-button-s">
+            <a href="<%= booking_path(booking.id) %>" data-turbo-method="delete">Leave Queue</a>
+        </div>
+        <div class="footer-button">
+            <a href="<%= restaurant_accept_booking_path(booking.id) %>"> Accept Booking</a>
+        </div>
+    </div>
+
+
+</div>

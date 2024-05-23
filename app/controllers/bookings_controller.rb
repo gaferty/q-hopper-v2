@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :new, :create, :destroy]
   def index
     @bookings = Booking.where(user_id: current_user.id, accepted: false)
+    @joined = @bookings.find_by(join: true)
     #For each of the bookings return the results before the created date timestamp
     @booking_infos = []
     @bookings.each do |booking|
