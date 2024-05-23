@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @reviews = @restaurant.reviews
+    @reviews = @restaurant.reviews.order(created_at: :desc)
     @booking_status = Booking.where(restaurant_id: @restaurant.id, user: current_user).last
   end
 
