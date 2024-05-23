@@ -8,8 +8,10 @@
   </div>
 </div>
 <%if @joined%>
-
+  <div style="padding-top: 25px; padding-bottom: 100px;">
    <%= render 'booking_joined_card', booking: @joined, queue_position: 0, status: 'joined'%>
+
+  </div>
 <%else%>
   <%= render 'booking_list', booking_infos: @booking_infos, status: 'not_joined'%>
 <%end%>
