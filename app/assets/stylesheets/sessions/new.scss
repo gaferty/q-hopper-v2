@@ -1,0 +1,154 @@
+
+
+.login-body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.login-container {
+  background-color: #fff;
+  margin-top: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  align-items: center;
+}
+
+
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.login-label {
+
+border: 0 !important;
+margin: 2%;
+padding: 0;
+width: 350px;
+}
+.form-label{
+  height: 25px;
+}
+
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-input input[type="email"],
+.form-input input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.form-input input[type="email"]:focus,
+.form-input input[type="password"]:focus {
+  border-color: #ff69b4;
+  outline: none;
+}
+
+.form-input-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input-checkbox input {
+  margin-right: 10px;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: 2px solid pink;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.login-btn{
+  padding: 10px 20px;
+  background-color: #f07eb7;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.form-actions button:hover {
+  background-color: #ff1493;
+  transform: translateY(-2px);
+}
+
+.form-actions button:active {
+  background-color: #ff69b4;
+  transform: translateY(0);
+}
+
+.links {
+  margin-top: 20px;
+}
+
+.links p {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.links a {
+  color: #ff69b4;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #ff1493;
+  text-decoration: underline;
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
