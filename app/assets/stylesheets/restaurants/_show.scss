@@ -96,11 +96,12 @@
 
 .review-card-final{
 
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   body {
+    font-size: 15px;
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     padding: 20px;
@@ -110,26 +111,26 @@ align-items: center;
 
   .review-card {
     border: 1px solid #ddd;
-    max-width: 300px;
+    width: 300px;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     align-items: center;
+  }
 
-    h1 {
-      text-align: center;
-      color: #FC819E;
-    }
+  h1 {
+    text-align: center;
+    color: #FC819E;
+  }
 
-    h2 {
-      font-size: 25px;
-    }
+  h2 {
+    font-size: 15px;
+  }
 
-    p{
-      font-size: 15px;
-    }
+  p{
+    font-size: 12px;
   }
 
   .container_review {
@@ -225,13 +226,10 @@ align-items: center;
   }
 
   .rating {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     color: #FC819E;
     margin-bottom: 10px;
   }
 
-  .comment_review_card {
-    font-size: 12px;
-  }
 }
