@@ -7,30 +7,15 @@
     <a href="<%= completed_bookings_path %>" class="btn btn-outline-secondary mx-2" style="height: 30px; width: 50%; align-content: center;">Completed</a>
   </div>
 </div>
+<%if @joined%>
+  <div style="padding-top: 25px; padding-bottom: 100px;">
+   <%= render 'booking_joined_card', booking: @joined, queue_position: 0, status: 'joined'%>
 
-<%= render 'booking_card', booking_infos: @booking_infos%>
+  </div>
+<%else%>
+  <%= render 'booking_list', booking_infos: @booking_infos, status: 'not_joined'%>
+<%end%>
 
 
 <!-- Footer for the Queue (do not render as I have had to do a manual thing - cyrus) -->
-<footer class="footer">
-    <nav class="footer-nav">
-        <div class="footer-section">
-            <a href="map">
-                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/ofarf6aoairysld5eghg.png" alt="Home">
-                <span>Search</span>
-            </a>
-        </div>
-        <div class="footer-section">
-            <a href="bookings">
-                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/xfjzjdi2tbeyb8wwzoja.png" alt="About">
-                <span style="color: #E82E64">Queue</span>
-            </a>
-        </div>
-               <div class="footer-section">
-            <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="dropdown-item">
-                <img src="https://res.cloudinary.com/dqbiijjlp/image/upload/v1715860282/hddpgefap6eu4ce1dmoe.png" alt="Contact">
-                <span>Account</span>
-            </a>
-        </div>
-    </nav>
-</footer>
+<%= render 'shared/footer'%>
