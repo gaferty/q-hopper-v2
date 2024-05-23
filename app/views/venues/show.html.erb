@@ -1,8 +1,8 @@
 <h1 class="text-center"> <strong> <%=@venue.name%> </strong>   </h1>
-<div class="venue-queue-container bg-light rounded-5" >
+<div class="venue-queue-container bg-light rounded-5 border" >
   <div class="row w-60">
       <div class="col ">
-        <%= render 'queue', groups: @bookings.where(accepted:false), title: "Current Queue", parameter:"Queue Size"%>
+        <%= render 'queue', groups: @bookings.where(accepted:false), title: "Queue", parameter:"Queue Size"%>
 
 
         <div class="d-flex justify-content-center p-3">
@@ -14,10 +14,10 @@
         </div>
 
         <div class="col">
-          <%= render 'queue', groups: @bookings.where(completed:false, accepted:true), title: "Accepted Bookings", parameter: "On Route"%>
+          <%= render 'queue', groups: @bookings.where(completed:false, accepted:true), title: "Sccepted", parameter: "On Route"%>
         </div>
         <div class="col">
-          <%=render 'queue', groups: @bookings.where(completed:true, accepted:true), title: 'Reviews', parameter: 'Completed Bookings'%>
+          <%=render 'queue', groups: @bookings.where(completed:true, accepted:true), title: 'Completed', parameter: 'Completed Bookings'%>
         </div>
   </div>
 
