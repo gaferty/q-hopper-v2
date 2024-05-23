@@ -27,14 +27,14 @@
   <body >
   <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-
-    <div class="main">
       <%if user_signed_in? && current_user.user_type='customer'%>
       <div class="alert-message" data-controller= 'restaurant-subscription' data-restaurant-subscription-target='messages' data-restaurant-subscription-user-id-value = "<%=current_user.id%>">
 
       </div>
 
       <%end%>
+
+    <div class="main">
         <%= yield %>
     </div>
   </body>
